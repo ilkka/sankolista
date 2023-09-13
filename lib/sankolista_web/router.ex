@@ -17,7 +17,8 @@ defmodule SankolistaWeb.Router do
   scope "/", SankolistaWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    # get "/", PageController, :home
+    live "/", PostsLive.Index
   end
 
   # Other scopes may use custom stacks.
