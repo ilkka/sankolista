@@ -38,5 +38,8 @@ defmodule Sankolista.List.ListItem do
       default :waiting
       allow_nil? false
     end
+
+    create_timestamp :created_at
+    update_timestamp :updated_at
   end
 end
