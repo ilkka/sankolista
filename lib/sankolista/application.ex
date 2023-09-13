@@ -10,7 +10,7 @@ defmodule Sankolista.Application do
     children = [
       # Start the Telemetry supervisor
       SankolistaWeb.Telemetry,
-      # Start the Ecto repository
+      # Start the Ash repository
       Sankolista.Repo,
       # Start the PubSub system
       {Phoenix.PubSub, name: Sankolista.PubSub},

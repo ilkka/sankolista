@@ -7,8 +7,15 @@
 # General application configuration
 import Config
 
+# For backwards compatibility, the following configuration is required.
+# see https://ash-hq.org/docs/guides/ash/latest/get-started#temporary-config for more details
+config :ash, :use_all_identities_in_manage_relationship?, false
+
 config :sankolista,
   ecto_repos: [Sankolista.Repo]
+
+# Configure ash APIs
+config :sankolista, ash_apis: [Sankolista.List]
 
 # Configures the endpoint
 config :sankolista, SankolistaWeb.Endpoint,
