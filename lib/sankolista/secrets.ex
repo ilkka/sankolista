@@ -14,11 +14,11 @@ defmodule Sankolista.Secrets do
   end
 
   def secret_for(
-        [:authentication, :strategies, :auth0, :redirect_url],
+        [:authentication, :strategies, :auth0, :redirect_uri],
         Sankolista.Accounts.User,
         _
       ) do
-    get_config(:redirect_url)
+    get_config(:redirect_uri)
   end
 
   def secret_for([:authentication, :strategies, :auth0, :site], Sankolista.Accounts.User, _) do
