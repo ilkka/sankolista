@@ -27,7 +27,7 @@ defmodule Sankolista.Accounts.User do
   end
 
   identities do
-    identity :email, :email
+    identity :unique_email, :email
   end
 
   actions do
