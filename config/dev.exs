@@ -10,6 +10,14 @@ config :sankolista, Sankolista.Repo,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
+config :sankolista, :auth0,
+  client_id: "",
+  client_secret: "",
+  # this is totally incorrect, I think it now shows up as an error like
+  # "no route found for GET /auth/user/sankolista-dev.eu.auth0.com/authorize (SankolistaWeb.Router)"
+  site: "sankolista-dev.eu.auth0.com",
+  redirect_uri: "http://localhost:4000/auth/user/auth0/callback"
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
