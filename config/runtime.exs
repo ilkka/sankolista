@@ -20,6 +20,11 @@ if System.get_env("PHX_SERVER") do
   config :sankolista, SankolistaWeb.Endpoint, server: true
 end
 
+config :sankolista, :auth0,
+  client_id: System.get_env("AUTH0_CLIENT_ID") || raise("environment variable AUTH0_CLIENT_ID is missing"),
+  client_secret: System.get_env("AUTH0_CLIENT_SECRET") || raise("environment variable AUTH0_CLIENT_SECRET is missing")
+
+
 if config_env() == :prod do
   database_url =
     System.get_env("DATABASE_URL") ||
