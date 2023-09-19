@@ -14,7 +14,7 @@ values = Vapor.load!([
       {:phx_server, "PHX_SERVER", default: false, map: fn s -> s in ~w(true 1) end},
       {:hostname, "PHX_HOST", default: "localhost"},
       {:port, "PORT", default: 4000, map: &String.to_integer/1},
-      {:url_scheme, "URL_SCHEME", default: "http", }
+      {:url_scheme, "URL_SCHEME", default: "http"},
       {:secret_key_base, "SECRET_KEY_BASE"},
       {:auth0_client_id, "AUTH0_CLIENT_ID"},
       {:auth0_client_secret, "AUTH0_CLIENT_SECRET"},
