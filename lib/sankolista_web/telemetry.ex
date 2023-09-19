@@ -1,4 +1,5 @@
 defmodule SankolistaWeb.Telemetry do
+  @moduledoc "Default telemetry stuff"
   use Supervisor
   import Telemetry.Metrics
 

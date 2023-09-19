@@ -16,11 +16,15 @@ jobs:
         env:
           POSTGRES_PASSWORD: postgres
           POSTGRES_USER: postgres
+          POSTGRES_PORT: 5432
+        ports:
+          - "5432:5432"
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -30,11 +34,25 @@ jobs:
           otp-version: 26.0.2
           elixir-version: 1.15.5
           rebar3-version: 3.22.1
-      - run: mix deps.get
-      - run: mix compile
+      - uses: actions/cache@v3
+        id: cache
+        with:
+          path: |
+            deps
+            _build
+          key: ${{ runner.os }}-mix-${{ hashfiles('**/mix.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-mix-
+      - run: mix do deps.get, deps.compile
+        if: steps.cache.outputs.cache-hit != 'true'
+        env:
+          MIX_ENV: test
+      - run: mix do deps.get, deps.compile
+        if: steps.cache.outputs.cache-hit != 'true'
+      - run: mix compile --warnings-as-errors
       - run: mix test
         env:
-          DATABASE_URL: ecto://postgres:postgres@postgres:5432/sankolista_dev
+          DATABASE_URL: ecto://postgres:postgres@localhost:5432/sankolista_dev
           AUTH0_CLIENT_ID: ${{secrets.AUTH0_CLIENT_ID}}
           AUTH0_CLIENT_SECRET: ${{secrets.AUTH0_CLIENT_SECRET}}
           SECRET_KEY_BASE: ${{secrets.SECRET_KEY_BASE}}

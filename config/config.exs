@@ -15,7 +15,7 @@ config :sankolista,
   ecto_repos: [Sankolista.Repo]
 
 # Configure ash APIs
-config :sankolista, ash_apis: [Sankolista.List]
+config :sankolista, ash_apis: [Sankolista.List, Sankolista.Accounts]
 
 # Configures the endpoint
 config :sankolista, SankolistaWeb.Endpoint,

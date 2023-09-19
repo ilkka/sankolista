@@ -10,6 +10,10 @@ config :sankolista, Sankolista.Repo,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
+config :sankolista, :auth0,
+  site: "https://sankolista-dev.eu.auth0.com",
+  redirect_uri: "http://localhost:4000/auth"
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #

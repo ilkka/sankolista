@@ -1,6 +1,6 @@
 defmodule SankolistaWeb.PostsLive.Index do
   use SankolistaWeb, :live_view
-  import Phoenix.HTML.Form
+  #import Phoenix.HTML.Form
   alias Sankolista.List.ListItem
 
   @impl true

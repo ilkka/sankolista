@@ -1,5 +1,6 @@
 defmodule SankolistaWeb.Router do
   use SankolistaWeb, :router
+  use AshAuthentication.Phoenix.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -8,10 +9,12 @@ defmodule SankolistaWeb.Router do
     plug :put_root_layout, html: {SankolistaWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :load_from_session
   end
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug :load_from_bearer
   end
 
   scope "/", SankolistaWeb do
@@ -19,6 +22,11 @@ defmodule SankolistaWeb.Router do
 
     # get "/", PageController, :home
     live "/", PostsLive.Index
+
+    sign_in_route()
+    sign_out_route(AuthController)
+    auth_routes_for(Sankolista.Accounts.User, to: AuthController)
+    reset_route([])
   end
 
   # Other scopes may use custom stacks.

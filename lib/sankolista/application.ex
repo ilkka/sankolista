@@ -17,7 +17,9 @@ defmodule Sankolista.Application do
       # Start Finch
       {Finch, name: Sankolista.Finch},
       # Start the Endpoint (http/https)
-      SankolistaWeb.Endpoint
+      SankolistaWeb.Endpoint,
+      # Authentication supervisor
+      {AshAuthentication.Supervisor, otp_app: :sankolista}
       # Start a worker by calling: Sankolista.Worker.start_link(arg)
       # {Sankolista.Worker, arg}
     ]

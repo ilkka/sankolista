@@ -1,0 +1,16 @@
+queue_rules:
+  - name: default
+    merge_conditions:
+      - and: &checks
+        - check-success=Build and test
+        - check-success=Validate PR title
+    merge_method: squash
+        
+pull_request_rules:
+  - name: Automatic merge on approval
+    conditions:
+      - "#approved-reviews-by>=1"
+      - and: *checks
+    actions:
+      queue:
+        name: default
