@@ -39,8 +39,8 @@ if values.phx_server do
 end
 
 config :sankolista, :auth0,
-  client_id: values.client_id,
-  client_secret: values.client_secret
+  client_id: values.auth0_client_id,
+  client_secret: values.auth0_client_secret
 
 config :sankolista, Sankolista.Repo,
   url: values.database_url,
