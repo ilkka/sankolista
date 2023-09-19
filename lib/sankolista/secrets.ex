@@ -1,4 +1,7 @@
 defmodule Sankolista.Secrets do
+  @moduledoc """
+  Secrets for Ash.
+  """
   use AshAuthentication.Secret
 
   @impl AshAuthentication.Secret
