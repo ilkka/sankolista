@@ -1,24 +1,24 @@
 name: CI
 on:
-    push:
-        branches:
-            - main
-    pull_request:
-        types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
 jobs:
-    build:
-        name: Build and test
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-              with:
-                  fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
-            - uses: erlef/setup-beam@v1
-              with:
-                otp-version: 26.0.2
-                elixir-version: 1.15.5
-                rebar3-version: 3.22.1
-            - run: mix deps.get
-            - run: mix compile
-            - run: mix test
-            - run: mix credo
+  build:
+    name: Build and test
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: 26.0.2
+          elixir-version: 1.15.5
+          rebar3-version: 3.22.1
+      - run: mix deps.get
+      - run: mix compile
+      - run: mix test
+      - run: mix credo
