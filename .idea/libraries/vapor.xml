@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="vapor" type="mix">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/vapor/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/vapor/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/vapor/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/vapor/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/vapor/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/vapor/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/vapor/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/test/lib/vapor/ebin" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/vapor/lib" />
+      <root url="file://$PROJECT_DIR$/deps/vapor/priv" />
+      <root url="file://$PROJECT_DIR$/deps/vapor/lib" />
+      <root url="file://$PROJECT_DIR$/deps/vapor/priv" />
+    </SOURCES>
+  </library>
+</component>
