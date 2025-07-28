@@ -32,7 +32,7 @@ jobs:
           otp-version: 26.0.2
           elixir-version: 1.15.5
           rebar3-version: 3.22.1
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         id: cache
         with:
           path: |
