@@ -51,7 +51,7 @@ defmodule Sankolista.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
-      {:ash, "~> 2.14"},
+      {:ash, "~> 3.0"},
       {:ash_postgres, "~> 1.3"},
       {:ash_phoenix, "~> 1.2"},
       {:ash_authentication, "~> 3.11"},
